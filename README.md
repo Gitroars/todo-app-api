@@ -1,6 +1,6 @@
 # todo-app-api
 
-This is an assignment done by Arvin (L4BC), which is related to the previous Todo Assignment. <br>
+This is an assignment done by Arvin (L4BC), which is related to the previous Todo Assignment. Here, it's about FastAPI.  <br>
 
 ## Running the Program <br>
 
