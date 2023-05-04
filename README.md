@@ -4,7 +4,7 @@ This is an assignment done by Arvin (L4BC), which is related to the previous Tod
 
 ## Running the Program <br>
 
-To run the program, utilize the Terminal with the following command: `python -m uvicorn main:app --reload`
+To run the program, open the program folder using any IDE and utilize the Terminal with the following command: `python -m uvicorn main:app --reload`
 
 ## Documentation <br>
 
