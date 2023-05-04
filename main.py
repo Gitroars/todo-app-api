@@ -31,18 +31,7 @@ class UpdateItem(BaseModel):
     description: Optional[str] = None
     completed: Optional[bool] = None
 
-items = {
-    1:Item(title="Buy groceries",description="Milk, bread, eggs, and cheese",completed=False),
-    2:Item(title="Clean the house",description="Vacuum the carpets, mop the floors, and dust the furniture",completed=False),
-    3:Item(title="Finish homework",description="Read chapter 5, complete exercises 1-10, and submit by Friday",completed=True)
-}
 
-
-users = {
-    1:User(email="alvena35@yahoo.com",password="6P3veEWX0fB44bJ"),
-    2:User(email="furman_will@yahoo.com",password="rUBeUYSOgwWyWDO"),
-    3:User(email="peter.hills@gmail.com",password="misjZwVzLVyuyVy")
-}
 #default page
 @app.get("/")
 def index():
@@ -125,3 +114,16 @@ def delete_user(user_id: int):
         return {"error": "user id doesn't exist"}
     del users[user_id]
     return {"data": "user deleted successfully"}
+
+items = {
+    1:Item(title="Buy groceries",description="Milk, bread, eggs, and cheese",completed=False),
+    2:Item(title="Clean the house",description="Vacuum the carpets, mop the floors, and dust the furniture",completed=False),
+    3:Item(title="Finish homework",description="Read chapter 5, complete exercises 1-10, and submit by Friday",completed=True)
+}
+
+
+users = {
+    1:User(email="alvena35@yahoo.com",password="6P3veEWX0fB44bJ"),
+    2:User(email="furman_will@yahoo.com",password="rUBeUYSOgwWyWDO"),
+    3:User(email="peter.hills@gmail.com",password="misjZwVzLVyuyVy")
+}
