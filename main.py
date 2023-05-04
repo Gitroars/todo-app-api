@@ -9,44 +9,6 @@ app = FastAPI()
 # POST
 # UPDATE
 # DELETE
-
-items = {
-    1: {
-        "title": "Welcome to TodoApp!",
-        "description": "To get started, complete this task",
-        "completed": False
-
-    }
-}
-
-users = {
-
-}
-#default page
-@app.get("/")
-def index():
-    return {"Data": "Hello world!"}
-
-#query parameter to get items
-@app.get("/get-item")
-def get_item(id: int = Query(..., description="The ID of item that you want to see")):
-    return items[id]
-#query paramter to get users
-@app.get("/get-user")
-def get_user(id: int = Query(..., description="The ID of user that you want to see")):
-    return users[id]
-
-
-# path parameter to get items
-
-@app.get("/get-item/{id}")
-def get_item(id: int = Path(description="The ID of item that you want to see")):
-    return items[id]
-#path parameter to get users
-@app.get("/get-user/{id}")
-def get_user(id: int = Path(description="The ID of user that you want to see")):
-    return users[id]
-
 #Class to initialize users
 class User(BaseModel):
     email: str
@@ -68,6 +30,45 @@ class UpdateItem(BaseModel):
     title: Optional[str] = None
     description: Optional[str] = None
     completed: Optional[bool] = None
+
+items = {
+    1:Item("Buy groceries","Milk, bread, eggs, and cheese",False),
+    2:Item("Clean the house","Vacuum the carpets, mop the floors, and dust the furniture",False),
+    3:Item("Finish homework","Read chapter 5, complete exercises 1-10, and submit by Friday",True)
+}
+
+
+users = {
+    1:User("alvena35@yahoo.com","6P3veEWX0fB44bJ"),
+    2:User("furman_will@yahoo.com","rUBeUYSOgwWyWDO"),
+    3:User("peter.hills@gmail.com","misjZwVzLVyuyVy")
+}
+#default page
+@app.get("/")
+def index():
+    return {"Data": "Hello world!"}
+
+#query parameter to get items
+@app.get("/get-item-query")
+def get_item(id: int = Query(..., description="The ID of item that you want to see")):
+    return items[id]
+#query paramter to get users
+@app.get("/get-user-query")
+def get_user(id: int = Query(..., description="The ID of user that you want to see")):
+    return users[id]
+
+
+# path parameter to get items
+
+@app.get("/get-item/{id}")
+def get_item(id: int = Path(description="The ID of item that you want to see")):
+    return items[id]
+#path parameter to get users
+@app.get("/get-user/{id}")
+def get_user(id: int = Path(description="The ID of user that you want to see")):
+    return users[id]
+
+
 
 
 # POST method for Items
