@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Path
+from fastapi import FastAPI, Path, Query
 from typing import Optional
 from pydantic import BaseModel
 
@@ -22,9 +22,19 @@ items = {
 users = {
 
 }
+#default page
 @app.get("/")
 def index():
     return {"Data": "Hello world!"}
+
+#query parameter to get items
+@app.get("/get-item")
+def get_item(id: int = Query(..., description="The ID of item that you want to see")):
+    return items[id]
+#query paramter to get users
+@app.get("/get-user")
+def get_user(id: int = Query(..., description="The ID of user that you want to see")):
+    return users[id]
 
 
 # path parameter to get items
